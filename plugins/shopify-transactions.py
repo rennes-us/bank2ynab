@@ -8,11 +8,11 @@ adjustment.
 """
 
 import logging
-from bank2ynab import B2YBank, CrossversionCsvReader, configparser
+from bank2ynab import B2YBank, EncodingCsvReader, configparser
 
 class ShopifyTransactionsPlugin(B2YBank):
-    def __init__(self, config_object, is_py2):
-        super(ShopifyTransactionsPlugin, self).__init__(config_object, is_py2)
+    def __init__(self, config_object):
+        super(ShopifyTransactionsPlugin, self).__init__(config_object)
         self.name = "Shopify Transactions"
 
     def read_data(self, file_path):
@@ -31,8 +31,7 @@ class ShopifyTransactionsPlugin(B2YBank):
         header_rows = self.config["header_rows"]
         output_data = []
 
-        with CrossversionCsvReader(file_path,
-                                   self._is_py2,
+        with EncodingCsvReader(file_path,
                                    delimiter=delim) as reader:
             for index, row in enumerate(reader):
                 # skip first row if headers
@@ -123,8 +122,8 @@ class ShopifyTransactionsPlugin(B2YBank):
         return output_data
 
 
-def build_bank(config, is_py2):
-    return ShopifyTransactionsPlugin(config, is_py2)
+def build_bank(config):
+    return ShopifyTransactionsPlugin(config)
 
 def shopify_date_to_ynab(text):
     date = text.split()[0]

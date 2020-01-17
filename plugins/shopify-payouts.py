@@ -6,11 +6,11 @@ data (the other being transactions).  This one is essentially just transfers to
 another account.
 """
 
-from bank2ynab import B2YBank, CrossversionCsvReader, configparser
+from bank2ynab import B2YBank, EncodingCsvReader, configparser
 
 class ShopifyPayoutsPlugin(B2YBank):
-    def __init__(self, config_object, is_py2):
-        super(ShopifyPayoutsPlugin, self).__init__(config_object, is_py2)
+    def __init__(self, config_object):
+        super(ShopifyPayoutsPlugin, self).__init__(config_object)
         self.name = "Shopify Payouts"
 
     def read_data(self, file_path):
@@ -29,9 +29,8 @@ class ShopifyPayoutsPlugin(B2YBank):
         header_rows = self.config["header_rows"]
         output_data = []
 
-        with CrossversionCsvReader(file_path,
-                                   self._is_py2,
-                                   delimiter=delim) as reader:
+        with EncodingCsvReader(file_path,
+                               delimiter=delim) as reader:
             for index, row in enumerate(reader):
                 # skip first row if headers
                 if index == 0 and header_rows != 0:
@@ -53,8 +52,8 @@ class ShopifyPayoutsPlugin(B2YBank):
         return output_data
 
 
-def build_bank(config, is_py2):
-    return ShopifyPayoutsPlugin(config, is_py2)
+def build_bank(config):
+    return ShopifyPayoutsPlugin(config)
 
 def shopify_date_to_ynab(text):
     date = text.split()[0]
