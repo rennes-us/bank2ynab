@@ -1,21 +1,6 @@
-<!-- I thought about adding some graphics for a better appearance, but it is too large and dominates the page:
-![YNAB banner image](https://b.thumbs.redditmedia.com/-4WEzT9WdhQV_khUidt56887E01btV8IILeL6TNvtvI.png)
--->
 # bank2ynab
 
 A common project to consolidate all conversion efforts from various banks' export formats into YNAB's import format.
-
-Development:
-[![GitHub issues by-label](https://img.shields.io/github/issues-raw/bank2ynab/bank2ynab/bug.svg)](https://github.com/bank2ynab/bank2ynab/issues?q=is%3Aissue+is%3Aopen+label%3Abug)
-[![GitHub open issues](https://img.shields.io/github/issues-raw/bank2ynab/bank2ynab.svg)](https://github.com/bank2ynab/bank2ynab/issues)
-[![GitHub last commit](https://img.shields.io/github/last-commit/bank2ynab/bank2ynab.svg)](https://github.com/bank2ynab/bank2ynab/commits/develop)
-[![PRs welcome!](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/bank2ynab/bank2ynab/blob/develop/docs/CONTRIBUTING.md)
-[![Join the chat at https://gitter.im/bank2ynab/Lobby](https://badges.gitter.im/github-release-notes/Lobby.svg)](https://gitter.im/bank2ynab/Lobby)
-
-Testing:
-[![Travis status](https://travis-ci.com/bank2ynab/bank2ynab.svg?branch=develop)](https://travis-ci.com/bank2ynab/bank2ynab)
-[![Coverage Status](https://codecov.io/gh/bank2ynab/bank2ynab/branch/develop/graph/badge.svg)](https://codecov.io/gh/bank2ynab/bank2ynab)
-[![Maintainability](https://api.codeclimate.com/v1/badges/a9bbb651ef51fc1d9f4f/maintainability)](https://codeclimate.com/github/bank2ynab/bank2ynab/maintainability)
 
 - [What? (Features)](#what)
   - [Wish List](#wishlist)
@@ -59,7 +44,7 @@ There are currently more than 80 GitHub projects related to YNAB converter scrip
 - Join the chat over at https://gitter.im/bank2ynab/Lobby
 - See also: [the wiki](https://github.com/bank2ynab/bank2ynab/wiki), perhaps most importantly [this page about import formats](https://github.com/bank2ynab/bank2ynab/wiki/ImportFormats).
 
-## <a name=install></a>Installation Instructions
+## <a name="install"></a>Installation Instructions
 
 - Download [this ZIP file](https://github.com/bank2ynab/bank2ynab/archive/master.zip)
 - Note the [Requirements](#requirements) for additional details!
@@ -82,7 +67,6 @@ Using `bank2ynab` is easy:
    - `Source Path = c:\users\example-username\Downloads` Specify where you save your downloaded CSV files.
    - `Delete Source File = True` set to `False` if you want to keep the original CSV you downloaded.
 1. Check that the configuration in `bank2ynab.conf` contains a `[SECTION]` for your banking format. *You only need to do this once per bank you use.* If you can't find your bank in the config, [tell us your bank's format](https://goo.gl/forms/b7SNwTxmQFfnXlMf2) and we can add it to the project.
-1. Install the required dependencies by navigating to the `bank2ynab` directory in your command line and entering the following - `pip install -r requirements.txt` or `pip3 install -r requirements.txt`.
 1. Run the `bank2ynab.py` conversion script to generate the YNAB-ready CSV output file. How to do this depends on your operating system:
    - Windows: Open a command prompt, navigate to the script directory, and run the command `python bank2ynab.py`.
      - Pro tip: Create a program shortcut! Right-click on the `bank2ynab.bat` file, choose *Send to* and then choose *Desktop (create shortcut)*. Now you can just double-click that shortcut!
@@ -140,7 +124,6 @@ Here is a list of the banks and their formats that we already support. Note that
 1. NL Bunq checking
 1. NL bunqDesktop software
 1. NL ING Bank
-1. NL ING Bank checking 2020 format
 1. NL Rabobank (2017 format)
 1. NL Rabobank (2018 format)
 1. NO DNB
